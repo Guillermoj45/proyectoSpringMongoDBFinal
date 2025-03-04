@@ -5,8 +5,6 @@ import com.example.proyecto_mongodb_spring.service.ArtistaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-
 @RestController
 @RequestMapping("/artista")
 public class ArtistaController {
@@ -14,9 +12,8 @@ public class ArtistaController {
     private ArtistaService artistaService;
 
     @PostMapping
-    public Artista addArtista(@RequestBody HashMap<String,String> artista) {
+    public Artista addArtista(@RequestBody Artista artista) {
         System.out.println("Datos recibidos: " + artista);
-        return null;
-        //return artistaService.save(artista);
+        return artistaService.save(artista);
     }
 }
