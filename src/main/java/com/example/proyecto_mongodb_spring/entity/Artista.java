@@ -3,6 +3,7 @@ package com.example.proyecto_mongodb_spring.entity;
 import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -18,9 +19,11 @@ public class Artista {
     private ObjectId id;
 
     @Field("nombre")
+    @Indexed
     private String nombre;
 
     @Field("genero")
+    @Indexed
     private String genero;
 
     @Field("biografia")
@@ -29,14 +32,4 @@ public class Artista {
     @Field("enlacesEnRedes")
     private HashMap<String, String> enlacesEnRedes;
 
-    @Override
-    public String toString() {
-        return "Artista{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", genero='" + genero + '\'' +
-                ", biografia='" + biografia + '\'' +
-                ", enlacesEnRedes=" + enlacesEnRedes +
-                '}';
-    }
 }
