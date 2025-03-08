@@ -4,10 +4,7 @@ import com.example.proyecto_mongodb_spring.entity.Entrada;
 import com.example.proyecto_mongodb_spring.service.EntradaService;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +20,12 @@ public class EntradaController {
         return entradaService.getAllEntradas();
     }
 
-    @PostMapping("/anular")
+    @PostMapping
+    public Entrada saveEntrada(Entrada entrada) {
+        return entradaService.saveEntrada(entrada);
+    }
+
+    @PutMapping("/anular")
     public void anularEntrada(ObjectId entrada) {
         entradaService.anularEntrada(entrada);
     }

@@ -23,6 +23,10 @@ public class EntradaService {
     }
 
     public void anularEntrada(ObjectId entrada) {
-        entradaRepository.getByid(entrada).setAnulada(true);
+        entradaRepository.getById(entrada);
+    }
+
+    public Entrada saveEntrada(Entrada entrada) {
+        return entradaRepository.save(entrada);
     }
 }
