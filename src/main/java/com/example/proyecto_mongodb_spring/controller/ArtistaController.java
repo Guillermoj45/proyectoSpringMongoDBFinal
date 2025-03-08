@@ -17,4 +17,14 @@ public class ArtistaController {
 
         return artistaService.save(artista);
     }
+
+    @GetMapping()
+    public Iterable<Artista> getArtistas() {
+        return artistaService.findAll();
+    }
+
+    @PutMapping()
+    public Artista updateArtista(@RequestBody Artista artista) {
+        return artistaService.save(artista);
+    }
 }

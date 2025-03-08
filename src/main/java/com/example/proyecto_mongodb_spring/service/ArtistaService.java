@@ -24,4 +24,8 @@ public class ArtistaService {
     public List<Artista> findAll() {
         return artistaRepository.findAll();
     }
+
+    public Artista getArtistaIdByNombre(String artistaBusqueda) {
+        return artistaRepository.findByNombre(artistaBusqueda);
+    }
 }
