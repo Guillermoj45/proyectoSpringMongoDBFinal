@@ -53,4 +53,7 @@ public class EventoService {
         return null;
     }
 
+    public void delete(Evento evento) {
+        eventoRepository.delete(evento);
+    }
 }

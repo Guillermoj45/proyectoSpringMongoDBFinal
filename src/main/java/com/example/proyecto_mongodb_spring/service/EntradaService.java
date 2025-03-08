@@ -22,4 +22,7 @@ public class EntradaService {
         return entradaRepository.countEntradaByEvento(evento);
     }
 
+    public void anularEntrada(ObjectId entrada) {
+        entradaRepository.getByid(entrada).setAnulada(true);
+    }
 }
