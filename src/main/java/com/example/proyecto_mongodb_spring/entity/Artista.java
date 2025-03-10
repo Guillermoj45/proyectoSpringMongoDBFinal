@@ -1,5 +1,6 @@
 package com.example.proyecto_mongodb_spring.entity;
 
+import com.example.proyecto_mongodb_spring.dto.RedesSocioales;
 import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 public class Artista {
 
     @Id
-    private ObjectId id;
+    private String id;
 
     @Field("nombre")
     @Indexed
@@ -30,6 +31,6 @@ public class Artista {
     private String biografia;
 
     @Field("enlacesEnRedes")
-    private HashMap<String, String> enlacesEnRedes;
+    private RedesSocioales[] enlacesEnRedes;
 
 }

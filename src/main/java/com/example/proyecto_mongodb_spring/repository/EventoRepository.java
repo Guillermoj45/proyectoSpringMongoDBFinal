@@ -10,23 +10,23 @@ import org.w3c.dom.ls.LSInput;
 import java.util.List;
 
 @Repository
-public interface EventoRepository extends MongoRepository<Evento, ObjectId> {
+public interface EventoRepository extends MongoRepository<Evento, String> {
     List<Evento> findByNombre(String nombre);
 
     List<Evento> findByFecha_DayAndFecha_MonthAndFecha_Year(int day, int month, int year);
 
     @Query("{ 'artistas': ?0 }")
-    List<Evento> findByArtista(ObjectId artistaId);
+    List<Evento> findByArtista(String artistaId);
 
     @Query("{ 'nombre': ?0, 'fecha.day': ?1, 'fecha.month': ?2, 'fecha.year': ?3, 'artistas': ?4 }")
-    List<Evento> findByNombreAndFecha_DayAndFecha_MonthAndFecha_YearAndArtista(String nombre, int day, int month, int year, ObjectId artistaId);
+    List<Evento> findByNombreAndFecha_DayAndFecha_MonthAndFecha_YearAndArtista(String nombre, int day, int month, int year, String artistaId);
 
     @Query("{ 'nombre': ?0, 'fecha.day': ?1, 'fecha.month': ?2, 'fecha.year': ?3 }")
     List<Evento> findByNombreAndFecha_DayAndFecha_MonthAndFecha_Year(String nombre, int day, int month, int year);
 
     @Query("{ 'fecha.day': ?0, 'fecha.month': ?1, 'fecha.year': ?2, 'artistas': ?3 }")
-    List<Evento> findByFecha_DayAndFecha_MonthAndFecha_YearAndArtista(int day, int month, int year, ObjectId artistaId);
+    List<Evento> findByFecha_DayAndFecha_MonthAndFecha_YearAndArtista(int day, int month, int year, String artistaId);
 
     @Query("{ 'nombre': ?0, 'artistas': ?1 }")
-    List<Evento> findByNombreAndArtista(String nombreBusqueda, ObjectId artistaId);
+    List<Evento> findByNombreAndArtista(String nombreBusqueda, String artistaId);
 }

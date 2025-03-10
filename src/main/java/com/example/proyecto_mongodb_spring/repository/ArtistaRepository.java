@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ArtistaRepository extends MongoRepository<Artista, ObjectId> {
+public interface ArtistaRepository extends MongoRepository<Artista, String> {
     public Artista findByNombre(String nombre);
     public List<Artista> findByGenero(String genero);
 }

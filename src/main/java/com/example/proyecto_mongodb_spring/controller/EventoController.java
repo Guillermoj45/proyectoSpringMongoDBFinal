@@ -1,6 +1,7 @@
 package com.example.proyecto_mongodb_spring.controller;
 
 import com.example.proyecto_mongodb_spring.dto.Busqueda;
+import com.example.proyecto_mongodb_spring.dto.EventoDTO;
 import com.example.proyecto_mongodb_spring.entity.Evento;
 import com.example.proyecto_mongodb_spring.service.EventoService;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ public class EventoController {
     private final EventoService eventoService;
 
     @GetMapping
-    public List<Evento> getEventos() {
+    public List<EventoDTO> getEventos() {
         return eventoService.getAllEventos();
     }
 
