@@ -2,9 +2,7 @@ package com.example.proyecto_mongodb_spring.dto;
 
 import com.example.proyecto_mongodb_spring.entity.Artista;
 import com.example.proyecto_mongodb_spring.entity.Evento;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -15,8 +13,8 @@ import java.time.LocalTime;
 import java.util.Set;
 
 @Data
-@Getter
-@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class EventoDTO {
     private String id;
 
@@ -33,7 +31,9 @@ public class EventoDTO {
     private Float precio;
 
     public EventoDTO(Evento evento) {
-        this.id = evento.getId();
+        try {
+            this.id = evento.getId();
+        } catch (Exception e) {}
         this.nombre = evento.getNombre();
         this.fecha = evento.getFecha();
         this.hora = evento.getHora();
